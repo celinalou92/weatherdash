@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dash</title>
+    <script src="https://kit.fontawesome.com/fa9831e7b9.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+</head>
+
+<body>
+    <header class="row">
+        <div class="col-12 d-flex justify-content-center bg-dark bg gradient text-light">
+            <h1 class="mx-auto">Weather Dashboard</h1>
+        </div>
+    </header>
+    <main class="row min-vh-100 no-gutters">
+        <div class="col-md-4 search-col bg-light">
+              <!-- search form -->
+            <div class="search-block">
+                <h3 class="search-text">
+                    Search for a City:
+                </h3>
+                <form action="post" id="search-form">
+                <input name="city" id="city" type="text" autofocus="true" class="form-input">
+                <button type="submit" class="btn search-btn"><i class="fas fa-search"></i></button>
+            </form>
+            </div>
+            <!-- search buttons -->
+            <div class="btn-group-vertical w-100">
+                <!-- <button type="button" class="btn btn-outline-secondary" id="austin">Austin</button>
+                <button type="button" class="btn btn-outline-secondary" id="chicago">Chicago</button>
+                <button type="button" class="btn btn-outline-secondary" id="nyc">New York</button>
+                <button type="button" class="btn btn-outline-secondary" id="Orlando">Orlando</button>
+                <button type="button" class="btn btn-outline-secondary" id="sf">San Francisco</button>
+                <button type="button" class="btn btn-outline-secondary" id="seattle">Seattle</button>
+                <button type="button" class="btn btn-outline-secondary" id="denver">Denver</button>
+                <button type="button" class="btn btn-outline-secondary" id="atlanta">Atlanta</button> -->
+            </div>
+        </div>
+        <div class="col-md-8 d-flex flex-column justify-content-between">
+            <div class="row feature-city">
+                <div class="col-md-8 w-100">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="card-title feature-city" id="feature-city"></h2>
+                            <p class="card-text temp">Temp: <span id="feature-temp-val"></span></p>
+                            <p class="card-text humidity">Humidity: <span id="feature-hum-val"></span></p>
+                            <p class="card-text wind">Wind Speed: <span id="feature-wind-val"></span></p>
+                            <p class="card-text uv">UV Index: <span id="feature-uv-val"></span></p>
+                        </div>
+                      </div>
+                </div>
+            </div>
+            <div class="row forecast-container">
+                <div class="col-md-8 five-day-container w-100">
+                    <h2 class="five-day-header">5-Day Forecast</h2>
+                    <div class="card-container row row-cols-5">
+                        <!-- card -->
+                        <!-- <div class="col">
+                            <div class="card day-card text-white bg-primary mb-3" style="max-width: 18rem;" id="1">
+                                <div class="card-body">
+                                  <h5 class="card-title date">3/19/2021</h5>
+                                  <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="">
+                                  <p class="card-text temp">Temp: <span class="temp-val"></span></p>
+                                  <p class="card-text humidity">Humidity: <span class="hum-val"></span></p>
+                                </div>
+                            </div>
+                        </div> -->
+                         
+                </div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/1.26.0/luxon.min.js" integrity="sha512-cYjGoxnM2sxryDRpKhwi8uTszEw2zufuDVz1dWlm1+wlvwnhQ4wu00BokHH4IKlogGJNL+2a2GYvHN+xaoUxjQ==" crossorigin="anonymous"></script>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+
+<script src="./assets/js/script.js" ></script>
+</body>
+</html>

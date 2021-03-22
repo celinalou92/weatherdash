@@ -1,0 +1,58 @@
+.search-col {
+    display: flex;
+    flex-direction: column;
+    padding: 10px 25px;
+}
+
+.btn-group-vertical button {
+    padding: 15px;
+}
+
+.btn-group-vertical {
+    margin: 20px 0;
+}
+
+.feature-city {
+    margin: 10px 0;
+}
+
+.day-card {
+    height: 200px;
+}
+
+.day-icon{
+    height: 75px;
+}
+
+@media only screen and (max-width: 1050px) {
+    .day-icon{
+        height: 25px;
+    }
+
+    .card-body h2, .card-body p {
+        font-size: smaller;
+    }
+    
+}
+
+@media only screen and (max-width: 700px) {
+ 
+
+    .row-cols-5{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr;
+    }
+    .five-day-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+    .col {
+        width: 100%;
+        
+    }
+    
+  }
