@@ -1,3 +1,6 @@
+body {
+    height: 50vh;
+}
 .search-col {
     display: flex;
     flex-direction: column;
