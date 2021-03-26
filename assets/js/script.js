@@ -8,7 +8,7 @@ let historyContainer = document.querySelector(".btn-group-vertical")
 let cityLocation;
 let historyBtn = document.querySelector(".btn-group-vertical")
 let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
-let dayCounter;
+let dayCounter = [1,2,3,4,5,6]
 
 function reappendCity(event) {
     let targetBtn = event.target
@@ -25,7 +25,7 @@ function reappendCity(event) {
             lon: lonResp
             }
         clear()
-        featureCity.innerText = pastCity
+        featureCity.innerText = `${pastCity} ${dateNow.toLocaleString()}`
         getWeather(cityLocation)
         });
 }
@@ -34,6 +34,7 @@ function clear() {
     cardContainer.innerHTML = "";
 }
 
+// search history 
 function appendSearch() {
     for(let i = 0; i < searchHistory.length; i++){
         let cityBtn = document.createElement("button");
@@ -52,10 +53,10 @@ function getGeocode(event) {
         alert("Please enter a value")
     } else {
         clear();
-        console.log(searchCity)
-        let featureDate = dateNow.toLocaleString()
-        featureCity.innerText = `${searchCity} ${featureDate}`
-        console.log("clicked")
+        console.log(searchCity);
+        let featureDate = dateNow.toLocaleString();
+        featureCity.innerText = `${searchCity} ${featureDate}`;
+        console.log("clicked");
             fetch("http://api.openweathermap.org/geo/1.0/direct?appid=40491e6057ab901eb30d4f74c5bf1b85&q=" + searchCity)
             .then(response => response.json())
             .then( data => {
@@ -116,7 +117,7 @@ function getWeather(cityLocation) {
     console.log(`the temp is ${tempResponse}`);
     let windResponse = currentDayObj.wind_speed;
     console.log(`today's wind speed is ${windResponse}`);
-    let uvResponse = parseInt(currentDayObj.uvi)
+    let uvResponse = parseInt(currentDayObj.uvi);
     console.log(`todays UV index is ${uvResponse}`)
     let descriptionResponse = currentDayObj.weather[0].icon;
     console.log(`today's weather is ${descriptionResponse }`);
@@ -137,6 +138,7 @@ function getWeather(cityLocation) {
         featureWind.innerText = `${parseInt(windResponse)}MPH`;
         let featureUv = document.querySelector("#feature-uv-val");
         featureUv.innerText = uvResponse;
+    
 
          // UV index colors
          if (uvResponse >= 1 && uvResponse <= 2){
@@ -176,14 +178,19 @@ function getWeather(cityLocation) {
             let img = document.createElement("img");
             img.setAttribute("src", iconUrl)
             img.classList = "day-icon"
-            let temp = parseInt(data.daily[i].temp.day)
-            let hum = data.daily[i].humidity
+            let temp = parseInt(data.daily[i].temp.day);
+            let hum = data.daily[i].humidity;
 
-            let dayCounter = 1
+            
+            let dayAdd = dateNow.plus({days: dayCounter[i]});
+            let monthEl = dayAdd.month;
+            let dayEl = dayAdd.day;
+            let yearEl = dayAdd.year;
+            console.log(`${monthEl}/${dayEl}/${yearEl} is the date`);
             // date LUXON TODO finish this
-            let dateRepeat = dateNow.plus({days: dayCounter})
-            console.log(dateRepeat)
-            cardHead.innerText =   `${dateRepeat.toLocaleString}`;
+            let dateRepeat = `${monthEl}/${dayEl}/${yearEl}`;
+            
+            cardHead.innerText =   `${dateRepeat}`;
             cardTemp.innerText = `Temp: ${temp}°F`;
             cardHum.innerText = `Humidity: ${hum}%`;
 
@@ -196,9 +203,8 @@ function getWeather(cityLocation) {
             colDiv.appendChild(cardDiv);
 
             cardContainer.appendChild(colDiv);
-            dayCounter ++
-        }
-       
+        }   
+        
     })
 }
 

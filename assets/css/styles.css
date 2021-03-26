@@ -27,6 +27,15 @@ body {
     height: 75px;
 }
 
+
+#feature-uv-val{
+    margin-left: 10px;
+    padding: 10px 10px;
+    border-radius: 70%;
+    font-weight: bold;
+}
+
+
 @media only screen and (max-width: 1050px) {
     .day-icon{
         height: 25px;
