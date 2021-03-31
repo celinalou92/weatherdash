@@ -14,7 +14,7 @@ function reappendCity(event) {
     let targetBtn = event.target
     let pastCity = targetBtn.innerText
     console.log(pastCity)
-    fetch("http://api.openweathermap.org/geo/1.0/direct?appid=40491e6057ab901eb30d4f74c5bf1b85&q=" + pastCity)
+    fetch("https://api.openweathermap.org/geo/1.0/direct?appid=40491e6057ab901eb30d4f74c5bf1b85&q=" + pastCity)
             .then(response => response.json())
             .then( data => {
             console.log(data[0])
@@ -57,7 +57,7 @@ function getGeocode(event) {
         let featureDate = dateNow.toLocaleString();
         featureCity.innerText = `${searchCity} ${featureDate}`;
         console.log("clicked");
-            fetch("http://api.openweathermap.org/geo/1.0/direct?appid=40491e6057ab901eb30d4f74c5bf1b85&q=" + searchCity)
+            fetch("https://api.openweathermap.org/geo/1.0/direct?appid=40491e6057ab901eb30d4f74c5bf1b85&q=" + searchCity)
             .then(response => response.json())
             .then( data => {
             console.log(data[0])
@@ -125,7 +125,7 @@ function getWeather(cityLocation) {
     // feature city append values of list[0]
         
         let featureIconCode = data.daily[0].weather[0].icon;
-        let featureIconUrl = "http://openweathermap.org/img/wn/" + featureIconCode + "@2x.png";
+        let featureIconUrl = "https://openweathermap.org/img/wn/" + featureIconCode + "@2x.png";
         let featureImg = document.createElement("img");
         featureImg.setAttribute("src", featureIconUrl)
         featureImg.classList = "day-icon"
@@ -174,7 +174,7 @@ function getWeather(cityLocation) {
             cardHead.classList = "card-text hum-val";
 
             let iconCode = data.daily[i].weather[0].icon;
-            let iconUrl = "http://openweathermap.org/img/wn/" + iconCode + "@2x.png";
+            let iconUrl = "https://openweathermap.org/img/wn/" + iconCode + "@2x.png";
             let img = document.createElement("img");
             img.setAttribute("src", iconUrl)
             img.classList = "day-icon"
